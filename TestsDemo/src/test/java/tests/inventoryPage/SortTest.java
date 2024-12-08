@@ -16,6 +16,7 @@ public class SortTest extends BaseTest {
     private InventoryPage inventoryPage;
 
     @Override
+    @BeforeEach
     public void setup() {
         super.setup();
         driver.get(Urls.inventoryPage); // Nawigacja do strony Inventory

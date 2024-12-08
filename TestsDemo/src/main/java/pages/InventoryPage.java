@@ -1,14 +1,18 @@
 package pages;
 
+import baseClasses.BasePage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static io.qameta.allure.Allure.step;
 
 public class InventoryPage extends BasePage {
     private final By inventoryItemNames = By.cssSelector(".inventory_item_name");
@@ -70,9 +74,11 @@ public class InventoryPage extends BasePage {
             return 0;
         }
     }
-    @Step("Sortuj według: {sortOption}")
+
     public void sortItems(String sortOption) {
-        type(sortDropdown, sortOption);
+        step("Sortuj według: " + sortOption);
+        Select dropdown = new Select(sortDropdown);
+        dropdown.selectByVisibleText(sortOption); // Select an option by its visible text
     }
 
     @Step("Pobierz wszystkie ceny produktów")
@@ -81,7 +87,6 @@ public class InventoryPage extends BasePage {
                 .map(priceElement -> Double.parseDouble(priceElement.getText().replace("$", "")))
                 .collect(Collectors.toList());
     }
-
 
     @Step("")
     public boolean isLogoDisplayed() {

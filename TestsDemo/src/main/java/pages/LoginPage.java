@@ -1,36 +1,34 @@
 package pages;
 
-import io.qameta.allure.Step;
+import baseClasses.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage extends BasePage {
+import static io.qameta.allure.Allure.step;
 
+public class LoginPage extends BasePage {
     // Lokatory elementów
-    private By usernameField = By.id("user-name");
-    private By passwordField = By.id("password");
-    private By loginButton = By.id("login-button");
-    private By errorMessage = By.cssSelector("[data-test='error']");
+    private final By usernameField = By.id("user-name");
+    private final By passwordField = By.id("password");
+    private final By loginButton = By.id("login-button");
+    private final By errorMessage = By.cssSelector("[data-test='error']");
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
-    // Wprowadzenie nazwy użytkownika
-    @Step("Wprowadzenie nazwy użytkownika")
     public void enterUsername(String username) {
+        step("Wprowadzenie nazwy użytkownika: " + username);
         driver.findElement(usernameField).sendKeys(username);
     }
 
-    // Wprowadzenie hasła
-    @Step("Wprowadzenie hasła")
     public void enterPassword(String password) {
+        step("Wprowadzenie hasła: " + password);
         driver.findElement(passwordField).sendKeys(password);
     }
 
-    // Kliknięcie przycisku logowania
-    @Step("Klikniecie przycisku logowania")
     public InventoryPage clickLoginButton() {
+        step("Klikniecie przycisku logowania");
         driver.findElement(loginButton).click();
         return new InventoryPage(driver);
     }
