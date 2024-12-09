@@ -1,6 +1,7 @@
 package tests.inventoryPage;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import pages.InventoryPage;
@@ -12,13 +13,13 @@ import java.util.Comparator;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@DisplayName("Sortowanie produktow")
+@Feature("Przegladarka produktów - Sortowanie")
 public class SortTest extends BaseTest {
     private InventoryPage inventoryPage;
 
-    @Override
     @BeforeEach
-    public void setup() {
-        super.setup();
+    public void _setup() {
         driver.get(Urls.inventoryPage); // Nawigacja do strony Inventory
         inventoryPage = new InventoryPage(driver); // Inicjalizacja strony
     }

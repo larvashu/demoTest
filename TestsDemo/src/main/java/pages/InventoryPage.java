@@ -39,29 +39,31 @@ public class InventoryPage extends BasePage {
     }
 
     public void addToCart(int index) {
+        step("Dodaj do koszyka produkt o indexie: " + index);
         if (index < addToCartButtons.size()) {
             click(addToCartButtons.get(index));
         }
     }
-    @Step("Pobierz wszystkie nazwy produktów")
     public List<String> getAllItemNames() {
+        step("Pobierz wszystkie nazwy produktów");
         return driver.findElements(inventoryItemNames).stream()
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
     }
 
-    @Step("Pobierz nazwę pierwszego elementu")
     public String getFirstItemName() {
+        step("Pobierz nazwę pierwszego elementu");
         return getAllItemNames().get(0);
     }
 
-    @Step("Pobierz nazwę ostatniego elementu")
     public String getLastItemName() {
+        step("Pobierz nazwę ostatniego elementu");
         List<String> items = getAllItemNames();
         return items.get(items.size() - 1);
     }
 
     public void removeFromCart(int index) {
+        step("Usun z koszyka produkt o indeksie: " + index);
         if (index < addToCartButtons.size()) {
             click(addToCartButtons.get(index)); // Button changes to "Remove"
         }

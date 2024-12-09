@@ -1,6 +1,7 @@
 package tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.InventoryPage;
@@ -8,17 +9,17 @@ import pages.LoginPage;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
+import utils.Urls;
 
+@DisplayName("Ekran logowania")
+@Feature("Logowanie")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class LoginTest {
-    private WebDriver driver;
+public class LoginTest extends BaseTest {
     private LoginPage loginPage;
 
     @BeforeEach
-    public void setUp() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://www.saucedemo.com/v1/");
+    public void _setup() {
+        driver.get(Urls.baseUrl);
         loginPage = new LoginPage(driver);
     }
 
@@ -58,12 +59,5 @@ public class LoginTest {
         // Sprawdzamy komunikat o błędzie
         String expectedErrorMessage = "Epic sadface: Username is required";
         assertEquals(expectedErrorMessage, loginPage.getErrorMessage(), "Error message should indicate that username is required.");
-    }
-
-    @AfterEach
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
     }
 }

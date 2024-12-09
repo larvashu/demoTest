@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public abstract class BasePage {
+public abstract class BasePage extends BaseReport {
     protected WebDriver driver;
     protected WebDriverWait wait;
 

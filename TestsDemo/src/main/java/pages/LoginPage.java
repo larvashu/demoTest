@@ -28,7 +28,7 @@ public class LoginPage extends BasePage {
     }
 
     public InventoryPage clickLoginButton() {
-        step("Klikniecie przycisku logowania");
+        step("Kliknij przycisk logowania");
         driver.findElement(loginButton).click();
         return new InventoryPage(driver);
     }

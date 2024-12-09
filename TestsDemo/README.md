@@ -13,8 +13,14 @@ https://maven.apache.org/install.html
 https://allurereport.org/docs/install-for-windows/
 
 Uruchomienie testów:
-- Pierwszorazowo, lub po modyfikacji zależności w pliku pom - 'mvn clean install -U'
-- W innym przypadku 'mvn clean test'
-- Alternatywnie 'Ctrl+Shift+F10'
+- Komendy nalezy wykonywać z poziomu folderu `TestsDemo`
+- Pierwszorazowo, lub po modyfikacji zależności w pliku pom: `'mvn clean install -U'`
+- W innym przypadku `'mvn clean test'`
+- Alternatywnie `'Ctrl+Shift+F10'`
 
-Raport z testów otworzy się automatycznie po wykonaniu testów.
+
+Wyswietlenie raportu:
+
+`allure serve allure-results`
+
+

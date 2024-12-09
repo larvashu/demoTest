@@ -84,6 +84,13 @@
       <scope>compile</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-suite-api</artifactId>
+      <version>1.10.0</version> <!-- Use the latest version -->
+      <scope>test</scope>
+    </dependency>
+
     <!-- JUnit Jupiter Params -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -145,13 +152,6 @@
         <groupId>io.qameta.allure</groupId>
         <artifactId>allure-maven</artifactId>
         <version>${allure-maven.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>serve</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>
