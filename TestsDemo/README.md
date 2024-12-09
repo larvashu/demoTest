@@ -23,4 +23,3 @@ Wyswietlenie raportu:
 
 `allure serve allure-results`
 
-
